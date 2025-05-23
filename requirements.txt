@@ -4,3 +4,5 @@ openai
 google-generativeai
 python-dotenv
 langchain
+huggingface_hub
+langchain_google_genai

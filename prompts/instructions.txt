@@ -46,7 +46,7 @@ You MUST ONLY return a single JSON object matching the structure of "expected_bo
 - String keys can have more varied names. Try to infer a sensible key name from the query.
 - If the name is separated by spaces, trim and concatenate them with underscores. For example, "my shopping list" becomes "my_shopping_list".
 - If the name is a single word, use it as is.
-- When storing the value as a string, ensure it is a single value. If the user provides multiple values, concatenate them underscores.
+- When storing the value as a string, ensure it is a single value. If the user provides multiple values, trim and concatenate them with underscores.
 
 **Annotation Examples (for your understanding of the desired JSON output structure):**
 ```json
