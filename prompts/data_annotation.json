@@ -86,5 +86,467 @@
       "params": [],
       "intent": "FLUSHDB"
     }
+  },
+  {
+    "example_user_query": "Remove the first item from my grocery_list",
+    "expected_bot_response": {
+      "command": "LPOP %v1",
+      "params": ["my_grocery_list"],
+      "intent": "LPOP"
+    }
+  },
+  {
+    "example_user_query": "Get the value of login_token",
+    "expected_bot_response": {
+      "command": "GET %v1",
+      "params": ["login_token"],
+      "intent": "GET"
+    }
+  },
+  {
+    "example_user_query": "Add task1, task2, and task3 to today's_todos",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3 %v4",
+      "params": ["todays_todos", "task1", "task2", "task3"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Display items 1 to 4 in reading_list",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["reading_list", "1", "4"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "How many entries are in favorite_movies",
+    "expected_bot_response": {
+      "command": "LLEN %v1",
+      "params": ["favorite_movies"],
+      "intent": "LLEN"
+    }
+  },
+  {
+    "example_user_query": "Expire temp_key in 15 minutes",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["temp_key", "900"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "Check how long session_token will last",
+    "expected_bot_response": {
+      "command": "TTL %v1",
+      "params": ["session_token"],
+      "intent": "TTL"
+    }
+  },
+  {
+    "example_user_query": "Erase backup_file and temp_storage",
+    "expected_bot_response": {
+      "command": "DEL %v1 %v2",
+      "params": ["backup_file", "temp_storage"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "Reset everything in the store",
+    "expected_bot_response": {
+      "command": "FLUSHDB",
+      "params": [],
+      "intent": "FLUSHDB"
+    }
+  },
+  {
+    "example_user_query": "Add meeting_notes to note_list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2",
+      "params": ["note_list", "meeting_notes"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Get items 5 to 10 from my_history",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["my_history", "5", "10"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "Set the username to bob_smith",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["username", "bob_smith"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "What is the remaining time for user_session?",
+    "expected_bot_response": {
+      "command": "TTL %v1",
+      "params": ["user_session"],
+      "intent": "TTL"
+    }
+  },
+  {
+    "example_user_query": "Add milk, eggs, and bread to grocery_list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3 %v4",
+      "params": ["grocery_list", "milk", "eggs", "bread"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Delete the temporary_data key",
+    "expected_bot_response": {
+      "command": "DEL %v1",
+      "params": ["temporary_data"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "How many elements are in my_logs?",
+    "expected_bot_response": {
+      "command": "LLEN %v1",
+      "params": ["my_logs"],
+      "intent": "LLEN"
+    }
+  },
+  {
+    "example_user_query": "Set api_token to expire in 30 minutes",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["api_token", "1800"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "What is stored under product_123?",
+    "expected_bot_response": {
+      "command": "GET %v1",
+      "params": ["product_123"],
+      "intent": "GET"
+    }
+  },
+  {
+    "example_user_query": "Clear all data",
+    "expected_bot_response": {
+      "command": "FLUSHDB",
+      "params": [],
+      "intent": "FLUSHDB"
+    }
+  },
+  {
+    "example_user_query": "Set the key   user login  with value true",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["user_login", "true"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Delete key1 key2 key3 key4 key5 key6",
+    "expected_bot_response": {
+      "command": "DEL %v1 %v2 %v3 %v4 %v5 %v6",
+      "params": ["key1", "key2", "key3", "key4", "key5", "key6"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "Flush the thing entirely, burn it all",
+    "expected_bot_response": {
+      "command": "FLUSHDB",
+      "params": [],
+      "intent": "FLUSHDB"
+    }
+  },
+  {
+    "example_user_query": "Set an extremely_long_key_name_to_see_how_it_handles to value42",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["extremely_long_key_name_to_see_how_it_handles", "value42"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Set space heavy key    to spaced   value",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["space_heavy_key", "spaced_value"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "What's the time-to-live of a key that might not exist called ghost_key",
+    "expected_bot_response": {
+      "command": "TTL %v1",
+      "params": ["ghost_key"],
+      "intent": "TTL"
+    }
+  },
+  {
+    "example_user_query": "Give me values from index 999 to 1001 in ultra_long_list",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["ultra_long_list", "999", "1001"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "Expire key42 in 0 seconds",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["key42", "0"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "Set     key    with    lots    of    spaces    to    value",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["key_with_lots_of_spaces", "value"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Set a key named 'key with symbols @#$%^' to 'weird_value'",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["key_with_symbols_@#$%^", "weird_value"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Expire non_existent_key in 10 seconds",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["non_existent_key", "10"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "What is the TTL of a key that doesn't exist?",
+    "expected_bot_response": {
+      "command": "TTL %v1",
+      "params": ["a_key_that_doesnt_exist"],
+      "intent": "TTL"
+    }
+  },
+  {
+    "example_user_query": "Delete nothing",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "RPUSH without a key or value",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "FLUSHDB but keep one key",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "set my full name to John David Doe",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["my_full_name", "John_David_Doe"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Store 'this is a test sentence' as test_quote",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["test_quote", "this_is_a_test_sentence"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "let the project status be 'in progress and on track'",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["project_status", "in_progress_and_on_track"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Could you please retrieve for me the value associated with the key 'user_preferences_for_theme'?",
+    "expected_bot_response": {
+      "command": "GET %v1",
+      "params": ["user_preferences_for_theme"],
+      "intent": "GET"
+    }
+  },
+  {
+    "example_user_query": "add 100, 200, and item_c to my_data_list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3 %v4",
+      "params": ["my_data_list", "100", "200", "item_c"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Push 'value with spaces' and 'another one' to test_list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3",
+      "params": ["test_list", "value_with_spaces", "another_one"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "I need to process and remove the very first entry from the 'incoming_message_queue'",
+    "expected_bot_response": {
+      "command": "LPOP %v1",
+      "params": ["incoming_message_queue"],
+      "intent": "LPOP"
+    }
+  },
+  {
+    "example_user_query": "show me the first element of my_values_list",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["my_values_list", "0", "0"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "display items 2 through 5 from data_points_list",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["data_points_list", "2", "5"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "What's the total count of entries in user_activity_log?",
+    "expected_bot_response": {
+      "command": "LLEN %v1",
+      "params": ["user_activity_log"],
+      "intent": "LLEN"
+    }
+  },
+  {
+    "example_user_query": "delete the key named 'temporary_user_session_id_12345'",
+    "expected_bot_response": {
+      "command": "DEL %v1",
+      "params": ["temporary_user_session_id_12345"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "remove old_config_v1 and old_config_v2 keys",
+    "expected_bot_response": {
+      "command": "DEL %v1 %v2",
+      "params": ["old_config_v1", "old_config_v2"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "make 'cache_entry_alpha' expire in 5 minutes",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["cache_entry_alpha", "300"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "set a timeout for 'user_token_xyz' of 1 day",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["user_token_xyz", "86400"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "expire temp_key 90",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["temp_key", "90"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "How long until 'promo_code_special' expires?",
+    "expected_bot_response": {
+      "command": "TTL %v1",
+      "params": ["promo_code_special"],
+      "intent": "TTL"
+    }
+  },
+  {
+    "example_user_query": "sort my_list alphabetically",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "what is the meaning of life",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "set key",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "rpush mylist_a",
+    "expected_bot_response": {
+      "command": "ERROR",
+      "params": [
+        "Could not understand or translate the query into a valid Ledis command."
+      ],
+      "intent": "ERROR"
+    }
+  },
+  {
+    "example_user_query": "save under 'my test key' the value 'this is the actual value'",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["my_test_key", "this_is_the_actual_value"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "to the list 'phrases list' add 'hello world' and 'good bye'",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3",
+      "params": ["phrases_list", "hello_world", "good_bye"],
+      "intent": "RPUSH"
+    }
   }
 ]
