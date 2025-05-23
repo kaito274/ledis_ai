@@ -1,5 +1,6 @@
 import time
 from ledis_utils import is_key_expired, check_type
+from ledis_ai_translator import translate_nl_to_ledis_json
 
 # --- Data Storage ---
 DATA_STORE = {}
@@ -186,6 +187,39 @@ def handle_ttl(args):
         return f'Key "{key}" has expired and been deleted'
     return str(remaining_time)
 
+def handle_chat(args):
+    if not args: # Check if args list is empty
+        return "ERROR: CHAT command requires a natural language query."
+    natural_language_query = " ".join(args)
+
+    # Translate NL to structured Ledis command JSON using Gemini
+    ai_response_json = translate_nl_to_ledis_json(natural_language_query)
+
+    # Check if AI translation was successful
+    ai_intent = ai_response_json.get("intent", "ERROR").upper()
+    ai_params = ai_response_json.get("params", [])
+
+    if "ERROR" in ai_intent:
+        error_message = " ".join(ai_params) if ai_params else "AI translation failed."
+        return f"ERROR: CHAT Translation Error: {error_message}"
+
+    # Reconstruct the Ledis command string from AI response
+    translated_command_name = ai_intent 
+    translated_args = ai_params 
+
+    # Form the command string to be displayed and potentially executed
+    if translated_args:
+        reconstructed_ledis_command_str = f"{translated_command_name} {' '.join(translated_args)}"
+    else: # For commands like KEYS, FLUSHDB that take no args
+        reconstructed_ledis_command_str = translated_command_name
+
+    # Get the result for the translated command
+    execution_result = execute_command(reconstructed_ledis_command_str)
+    if "ERROR" in execution_result:
+        return f"ERROR: CHAT Execution Error: {execution_result}"
+    return f"{reconstructed_ledis_command_str} -> {execution_result}"
+
+
 # --- Command Dispatcher ---
 COMMAND_HANDLERS = {
     "SET": handle_set,
@@ -199,7 +233,7 @@ COMMAND_HANDLERS = {
     "FLUSHDB": handle_flushdb,
     "EXPIRE": handle_expire,
     "TTL": handle_ttl,
-    # "CHAT" TODO: Implement chat command
+    "CHAT": handle_chat,
 }
 
 def execute_command(command_str): 
