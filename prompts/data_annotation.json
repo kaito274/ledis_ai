@@ -1,0 +1,90 @@
+[
+  {
+    "example_user_query": "Add apple and orange to my shopping list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2 %v3",
+      "params": ["my_shopping_list", "apple", "orange"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Add apple to my shopping list",
+    "expected_bot_response": {
+      "command": "RPUSH %v1 %v2",
+      "params": ["my_shopping_list", "apple"],
+      "intent": "RPUSH"
+    }
+  },
+  {
+    "example_user_query": "Set my user ID to 12345",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["my_user_id", "12345"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "What is my user ID?",
+    "expected_bot_response": {
+      "command": "GET %v1",
+      "params": ["my_user_id"],
+      "intent": "GET"
+    }
+  },
+  {
+    "example_user_query": "store the value 'hello word' under the key greeting",
+    "expected_bot_response": {
+      "command": "SET %v1 %v2",
+      "params": ["greeting", "hello_word"],
+      "intent": "SET"
+    }
+  },
+  {
+    "example_user_query": "Show the first 3 items from my order_queue",
+    "expected_bot_response": {
+      "command": "LRANGE %v1 %v2 %v3",
+      "params": ["my_order_queue", "0", "2"],
+      "intent": "LRANGE"
+    }
+  },
+  {
+    "example_user_query": "How long is my task_list?",
+    "expected_bot_response": {
+      "command": "LLEN %v1",
+      "params": ["my_task_list"],
+      "intent": "LLEN"
+    }
+  },
+  {
+    "example_user_query": "Delete the cache_key and old_token",
+    "expected_bot_response": {
+      "command": "DEL %v1 %v2",
+      "params": ["cache_key", "old_token"],
+      "intent": "DEL"
+    }
+  },
+  {
+    "example_user_query": "Set session_abc to expire in 1 hour",
+    "expected_bot_response": {
+      "command": "EXPIRE %v1 %v2",
+      "params": ["session_abc", "3600"],
+      "intent": "EXPIRE"
+    }
+  },
+  {
+    "example_user_query": "Tell me all the keys",
+    "expected_bot_response": {
+      "command": "KEYS",
+      "params": [],
+      "intent": "KEYS"
+    }
+  },
+  {
+    "example_user_query": "Wipe the database clean",
+    "expected_bot_response": {
+      "command": "FLUSHDB",
+      "params": [],
+      "intent": "FLUSHDB"
+    }
+  }
+]

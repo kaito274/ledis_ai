@@ -198,7 +198,7 @@ def handle_chat(args):
     # Check if AI translation was successful
     ai_intent = ai_response_json.get("intent", "ERROR").upper()
     ai_params = ai_response_json.get("params", [])
-
+    # print(ai_intent, ai_params) # Debugging line
     if "ERROR" in ai_intent:
         error_message = " ".join(ai_params) if ai_params else "AI translation failed."
         return f"ERROR: CHAT Translation Error: {error_message}"

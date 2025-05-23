@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify
 import time
 from ledis_core import execute_command
+from ledis_ai_translator import prompt, load_prompt
+
 app = Flask(__name__)
+
+prompt.append(load_prompt())
 
 @app.route("/", methods=["POST"])
 def handle_request():
