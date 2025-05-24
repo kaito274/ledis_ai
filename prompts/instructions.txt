@@ -53,7 +53,7 @@ You MUST ONLY return a single JSON object matching the structure of "expected_bo
 ${DATA_ANNOTATION}
 ```
 
-Now, for the next input question, ONLY return the `"bot_response"` JSON object. Do not include `example_question` or `sql_query` outside the bot_response.
+Now, for the next input question, ONLY return the `"bot_response"` JSON object. Do not include `example_user_query` outside the bot_response.
 
 Here is the question:
           
